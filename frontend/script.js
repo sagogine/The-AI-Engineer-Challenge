@@ -1,6 +1,5 @@
 class ELI5App {
     constructor() {
-        this.apiKey = null;
         this.apiUrl = null;
         this.appVersion = '1.0.0';
         this.lastUpdate = Date.now();
@@ -18,7 +17,6 @@ class ELI5App {
         try {
             this.loadConfiguration();
             this.bindEvents();
-            this.hideApiKeySection();
             console.log('✅ ELI5 App initialized successfully');
         } catch (error) {
             console.error('❌ Error in init:', error);
@@ -28,10 +26,8 @@ class ELI5App {
     loadConfiguration() {
         try {
             if (window.ELI5_CONFIG) {
-                this.apiKey = this.getApiKey();
                 this.apiUrl = this.getApiUrl();
                 console.log('✅ Configuration loaded:', {
-                    hasApiKey: !!this.apiKey,
                     apiUrl: this.apiUrl,
                     environment: window.ELI5_CONFIG.environment
                 });
@@ -41,13 +37,6 @@ class ELI5App {
         } catch (error) {
             console.error('❌ Error loading configuration:', error);
         }
-    }
-
-    getApiKey() {
-        if (window.ELI5_CONFIG && window.ELI5_CONFIG.apiKey) {
-            return window.ELI5_CONFIG.apiKey;
-        }
-        return null;
     }
 
     getApiUrl() {
@@ -97,13 +86,6 @@ class ELI5App {
             console.log('✅ Event listeners bound successfully');
         } catch (error) {
             console.error('❌ Error binding events:', error);
-        }
-    }
-
-    hideApiKeySection() {
-        const apiKeySection = document.querySelector('.api-key-section');
-        if (apiKeySection) {
-            apiKeySection.style.display = 'none';
         }
     }
 
@@ -221,7 +203,6 @@ class ELI5App {
         
         console.log('🔍 Form values:', { topic, complexity });
         console.log('🔍 API Configuration:', { 
-            apiKey: this.apiKey ? `${this.apiKey.substring(0, 10)}...` : 'NOT SET',
             apiUrl: this.apiUrl,
             configExists: !!window.ELI5_CONFIG
         });
@@ -229,12 +210,6 @@ class ELI5App {
         if (!topic) {
             console.log('❌ No topic entered');
             this.showError('Please enter a topic to explain');
-            return;
-        }
-        
-        if (!this.apiKey) {
-            console.log('❌ No API key configured');
-            this.showError('Please configure your OpenAI API key in config.js');
             return;
         }
         
@@ -288,14 +263,12 @@ class ELI5App {
             developerMessage: developerMessage.substring(0, 100) + '...', 
             userMessage,
             apiUrl: this.apiUrl,
-            hasApiKey: !!this.apiKey
         });
         
         const requestBody = {
             developer_message: developerMessage,
             user_message: userMessage,
             model: 'gpt-4.1-mini',
-            api_key: this.apiKey
         };
         
         console.log('📡 Request body:', requestBody);

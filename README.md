@@ -1,186 +1,184 @@
-<p align = "center" draggable=”false” ><img src="https://github.com/AI-Maker-Space/LLM-Dev-101/assets/37101144/d1343317-fa2f-41e1-8af1-1dbb18399719" 
-     width="200px"
-     height="auto"/>
-</p>
+# ELI5 Frontend Application
 
+A beautiful, modern web application that explains any topic at varying complexity levels using OpenAI's GPT models.
 
-## <h1 align="center" id="heading"> 👋 Welcome to the AI Engineer Challenge</h1>
+## 🚀 Features
 
-## 🤖 Your First Vibe Coding LLM Application
+- **Complexity Slider**: Choose from 5 levels (ELI5 → Expert)
+- **Domain Selection**: Specialized explanations for Science, Tech, History, Math, and Literature
+- **Real-time Streaming**: See explanations appear as they're generated
+- **Beautiful UI**: Modern, responsive design with smooth animations
+- **Local Storage**: API key is saved locally for convenience
+- **Copy to Clipboard**: Easy sharing of explanations
+- **Markdown Support**: Rich text formatting in results
 
-> If you are a novice, and need a bit more help to get your dev environment off the ground, check out this [Setup Guide](docs/GIT_SETUP.md). This guide will walk you through the 'git' setup you need to get started.
+## 🛠️ Prerequisites
 
-> For additional context on LLM development environments and API key setup, you can also check out our [Interactive Dev Environment for LLM Development](https://github.com/AI-Maker-Space/Interactive-Dev-Environment-for-AI-Engineers).
+- OpenAI API key
+- Python backend running (see API setup below)
 
-In this repository, we'll walk you through the steps to create a LLM (Large Language Model) powered application with a vibe-coded frontend!
-
-Are you ready? Let's get started!
-
-<details>
-  <summary>🖥️ Accessing "gpt-4.1-mini" (ChatGPT) like a developer</summary>
-
-1. Head to [this notebook](https://colab.research.google.com/drive/1sT7rzY_Lb1_wS0ELI1JJfff0NUEcSD72?usp=sharing) and follow along with the instructions!
-
-2. Complete the notebook and try out your own system/assistant messages!
-
-That's it! Head to the next step and start building your application!
-
-</details>
-
-
-<details>
-  <summary>🏗️ Forking & Cloning This Repository</summary>
-
-Before you begin, make sure you have:
-
-1. 👤 A GitHub account (you'll need to replace `YOUR_GITHUB_USERNAME` with your actual username)
-2. 🔧 Git installed on your local machine
-3. 💻 A code editor (like Cursor, VS Code, etc.)
-4. ⌨️ Terminal access (Mac/Linux) or Command Prompt/PowerShell (Windows)
-5. 🔑 A GitHub Personal Access Token (for authentication)
-
-Got everything in place? Let's move on!
-
-1. Fork [this](https://github.com/AI-Maker-Space/The-AI-Engineer-Challenge) repo!
-
-     ![image](https://i.imgur.com/bhjySNh.png)
-
-1. Clone your newly created repo.
-
-     ``` bash
-     # First, navigate to where you want the project folder to be created
-     cd PATH_TO_DESIRED_PARENT_DIRECTORY
-
-     # Then clone (this will create a new folder called The-AI-Engineer-Challenge)
-     git clone git@github.com:<YOUR GITHUB USERNAME>/The-AI-Engineer-Challenge.git
-     ```
-
-     > Note: This command uses SSH. If you haven't set up SSH with GitHub, the command will fail. In that case, use HTTPS by replacing `git@github.com:` with `https://github.com/` - you'll then be prompted for your GitHub username and personal access token.
-
-2. Verify your git setup:
-
-     ```bash
-     # Check that your remote is set up correctly
-     git remote -v
-
-     # Check the status of your repository
-     git status
-
-     # See which branch you're on
-     git branch
-     ```
-
-     <!-- > Need more help with git? Check out our [Detailed Git Setup Guide](docs/GIT_SETUP.md) for a comprehensive walkthrough of git configuration and best practices. -->
-
-3. Open the freshly cloned repository inside Cursor!
-
-     ```bash
-     cd The-AI-Engineering-Challenge
-     cursor .
-     ```
-
-4. Check out the existing backend code found in `/api/app.py`
-
-</details>
-
-<details>
-  <summary>🔥Setting Up for Vibe Coding Success </summary>
-
-While it is a bit counter-intuitive to set things up before jumping into vibe-coding - it's important to remember that there exists a gradient betweeen AI-Assisted Development and Vibe-Coding. We're only reaching *slightly* into AI-Assisted Development for this challenge, but it's worth it!
-
-1. Check out the rules in `.cursor/rules/` and add theme-ing information like colour schemes in `frontend-rule.mdc`! You can be as expressive as you'd like in these rules!
-2. We're going to index some docs to make our application more likely to succeed. To do this - we're going to start with `CTRL+SHIFT+P` (or `CMD+SHIFT+P` on Mac) and we're going to type "custom doc" into the search bar. 
-
-     ![image](https://i.imgur.com/ILx3hZu.png)
-3. We're then going to copy and paste `https://nextjs.org/docs` into the prompt.
-
-     ![image](https://i.imgur.com/psBjpQd.png)
-
-4. We're then going to use the default configs to add these docs to our available and indexed documents.
-
-     ![image](https://i.imgur.com/LULLeaF.png)
-
-5. After that - you will do the same with Vercel's documentation. After which you should see:
-
-     ![image](https://i.imgur.com/hjyXhhC.png) 
-
-</details>
-
-<details>
-  <summary>😎 Vibe Coding a Front End for the FastAPI Backend</summary>
-
-1. Use `Command-L` or `CTRL-L` to open the Cursor chat console. 
-
-2. Set the chat settings to the following:
-
-     ![image](https://i.imgur.com/LSgRSgF.png)
-
-3. Ask Cursor to create a frontend for your application. Iterate as much as you like!
-
-4. Run the frontend using the instructions Cursor provided. 
-
-> NOTE: If you run into any errors, copy and paste them back into the Cursor chat window - and ask Cursor to fix them!
-
-> NOTE: You have been provided with a backend in the `/api` folder - please ensure your Front End integrates with it!
-
-</details>
-
-<details>
-  <summary>🚀 Deploying Your First LLM-powered Application with Vercel</summary>
-
-1. Ensure you have signed into [Vercel](https://vercel.com/) with your GitHub account.
-
-2. Ensure you have `npm` (this may have been installed in the previous vibe-coding step!) - if you need help with that, ask Cursor!
-
-3. Run the command:
-
-     ```bash
-     npm install -g vercel
-     ```
-
-4. Run the command:
-
-     ```bash
-     vercel
-     ```
-
-5. Follow the in-terminal instructions. (Below is an example of what you will see!)
-
-     ![image](https://i.imgur.com/D1iKGCq.png)
-
-6. Once the build is completed - head to the provided link and try out your app!
-
-> NOTE: Remember, if you run into any errors - ask Cursor to help you fix them!
-
-</details>
-
-### Vercel Link to Share
-
-You'll want to make sure you share you *domains* hyperlink to ensure people can access your app!
-
-![image](https://i.imgur.com/mpXIgIz.png)
-
-> NOTE: Test this is the public link by trying to open your newly deployed site in an Incognito browser tab!
-
-### 🎉 Congratulations! 
-
-You just deployed your first LLM-powered application! 🚀🚀🚀 Get on linkedin and post your results and experience! Make sure to tag us at @AIMakerspace!
-
-Here's a template to get your post started!
+## 📁 Project Structure
 
 ```
-🚀🎉 Exciting News! 🎉🚀
-
-🏗️ Today, I'm thrilled to announce that I've successfully built and shipped my first-ever LLM using the powerful combination of , and the OpenAI API! 🖥️
-
-Check it out 👇
-[LINK TO APP]
-
-A big shoutout to the @AI Makerspace for all making this possible. Couldn't have done it without the incredible community there. 🤗🙏
-
-Looking forward to building with the community! 🙌✨ Here's to many more creations ahead! 🥂🎉
-
-Who else is diving into the world of AI? Let's connect! 🌐💡
-
-#FirstLLMApp 
+frontend/
+├── index.html          # Main HTML file
+├── styles.css          # CSS styling
+├── script.js           # JavaScript functionality
+└── README.md           # This file
 ```
+
+## 🚀 Quick Start
+
+### 1. Start the Backend API
+
+First, make sure your Python backend is running:
+
+```bash
+cd api
+pip install -r requirements.txt
+python app.py
+```
+
+The API will be available at `http://localhost:8000`
+
+### 2. Open the Frontend
+
+Simply open `frontend/index.html` in your web browser, or serve it using a local server:
+
+```bash
+# Using Python (if available)
+cd frontend
+python -m http.server 8001
+
+# Using Node.js (if available)
+cd frontend
+npx serve .
+
+# Using PHP (if available)
+cd frontend
+php -S localhost:8001
+```
+
+### 3. Configure Your API Key
+
+1. Enter your OpenAI API key in the designated field
+2. Click "Save" to store it locally
+3. The key will be remembered for future sessions
+
+### 4. Start Explaining!
+
+1. Enter any topic you'd like explained
+2. Adjust the complexity level using the slider
+3. Select the appropriate domain
+4. Click "Explain" and watch the magic happen!
+
+## 🎯 Usage Examples
+
+### Example 1: Science (ELI5 Level)
+- **Topic**: Photosynthesis
+- **Complexity**: ELI5
+- **Domain**: Science
+- **Result**: Simple explanation with plant analogies
+
+### Example 2: Technology (Intermediate Level)
+- **Topic**: Blockchain
+- **Complexity**: Intermediate
+- **Domain**: Technology
+- **Result**: Technical explanation with practical examples
+
+### Example 3: History (Advanced Level)
+- **Topic**: French Revolution
+- **Complexity**: Advanced
+- **Domain**: History
+- **Result**: Detailed analysis with historical context
+
+## 🔧 Configuration
+
+### API Endpoint
+The frontend automatically detects your environment:
+- **Development**: Uses `http://localhost:8000/api/chat`
+- **Production**: Uses `/api/chat` (relative path)
+
+### Customization
+You can modify the API endpoint in `script.js`:
+
+```javascript
+// Change this line in the constructor
+this.apiUrl = 'http://localhost:8000/api/chat';
+```
+
+## 🎨 UI Features
+
+- **Responsive Design**: Works on desktop, tablet, and mobile
+- **Smooth Animations**: Hover effects and transitions
+- **Loading States**: Beautiful spinner during API calls
+- **Error Handling**: User-friendly error messages
+- **Accessibility**: Proper labels and keyboard navigation
+
+## 🔒 Security Features
+
+- API key is stored locally in browser localStorage
+- No sensitive data is sent to external servers
+- HTTPS-ready for production deployment
+
+## 🚀 Deployment
+
+### Vercel Deployment
+This frontend is ready for Vercel deployment. Simply:
+
+1. Connect your GitHub repository to Vercel
+2. Set the build command to: `echo "Static site - no build needed"`
+3. Set the output directory to: `frontend`
+4. Deploy!
+
+### Other Platforms
+The static files can be deployed to any web hosting service:
+- Netlify
+- GitHub Pages
+- AWS S3
+- Any traditional web hosting
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+1. **API Connection Error**
+   - Ensure the backend is running on port 8000
+   - Check if CORS is properly configured
+   - Verify the API endpoint URL
+
+2. **API Key Issues**
+   - Make sure you have a valid OpenAI API key
+   - Check if the key has sufficient credits
+   - Verify the key is properly saved
+
+3. **No Response**
+   - Check browser console for errors
+   - Verify network connectivity
+   - Ensure the topic input is not empty
+
+### Debug Mode
+Open browser console (F12) to see detailed logs and error messages.
+
+## 🤝 Contributing
+
+Feel free to contribute improvements:
+- UI/UX enhancements
+- Additional domain specializations
+- Better markdown formatting
+- Performance optimizations
+
+## 📝 License
+
+This project is open source and available under the MIT License.
+
+## 🙏 Acknowledgments
+
+- Built with vanilla HTML, CSS, and JavaScript
+- Powered by OpenAI GPT models
+- Beautiful icons from Font Awesome
+- Modern fonts from Google Fonts
+
+---
+
+**Happy Learning! 🎓✨**

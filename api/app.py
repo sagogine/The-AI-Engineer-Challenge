@@ -12,6 +12,12 @@ from typing import Optional
 # Initialize FastAPI application with a title
 app = FastAPI(title="OpenAI Chat API")
 
+# Get API key once at startup for better performance
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+if not OPENAI_API_KEY:
+    print("⚠️  WARNING: OPENAI_API_KEY environment variable not set!")
+    print("   The API will not work until this is configured.")
+
 # Configure CORS (Cross-Origin Resource Sharing) middleware
 # This allows the API to be accessed from different domains/origins
 app.add_middleware(
@@ -28,14 +34,17 @@ class ChatRequest(BaseModel):
     developer_message: str  # Message from the developer/system
     user_message: str      # Message from the user
     model: Optional[str] = "gpt-4.1-mini"  # Optional model selection with default
-    api_key: str          # OpenAI API key for authentication
 
 # Define the main chat endpoint that handles POST requests
 @app.post("/api/chat")
 async def chat(request: ChatRequest):
     try:
-        # Initialize OpenAI client with the provided API key
-        client = OpenAI(api_key=request.api_key)
+        # Check if API key is configured
+        if not OPENAI_API_KEY:
+            raise HTTPException(status_code=500, detail="OpenAI API key not configured in environment variables")
+        
+        # Initialize OpenAI client with the pre-loaded API key
+        client = OpenAI(api_key=OPENAI_API_KEY)
         
         # Create an async generator function for streaming responses
         async def generate():
