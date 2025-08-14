@@ -666,3 +666,43 @@ select:focus {
     font-style: italic;
     color: #666;
 }
+
+/* Dynamic Domain Info Styles */
+.dynamic-domain-info {
+    margin: 15px 0;
+    padding: 15px;
+    background: linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 100%);
+    border: 2px solid #a5d6a7;
+    border-radius: 12px;
+    animation: slideIn 0.3s ease-out;
+}
+
+.domain-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: #2e7d32;
+}
+
+.domain-badge i {
+    font-size: 1.2rem;
+    color: #4caf50;
+}
+
+.domain-badge strong {
+    color: #1b5e20;
+    font-weight: 700;
+}
+
+/* Enhanced domain selector styling */
+select option[value="dynamic"] {
+    background: linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 100%);
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+/* Loading message updates */
+.loading p {
+    transition: all 0.3s ease;
+}
