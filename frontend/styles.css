@@ -210,6 +210,74 @@ select:focus {
     background: white;
 }
 
+/* Domain Suggestion Styles */
+.domain-suggestion {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+    border: 2px solid #bbdefb;
+    animation: slideIn 0.3s ease-out;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.domain-suggestion .suggestion-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+}
+
+.domain-suggestion .suggestion-content.match {
+    background: linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 100%);
+    border: 2px solid #a5d6a7;
+}
+
+.domain-suggestion i {
+    font-size: 1.2rem;
+    color: #667eea;
+}
+
+.domain-suggestion .suggestion-content.match i {
+    color: #4caf50;
+}
+
+.domain-suggestion span {
+    flex: 1;
+    color: #333;
+    font-weight: 500;
+}
+
+.apply-suggestion-btn {
+    padding: 8px 16px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.apply-suggestion-btn:hover {
+    background: #5a67d8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* API Key Section */
 .api-key-section {
     background: #f8f9fa;
@@ -442,6 +510,17 @@ select:focus {
     
     .tagline {
         font-size: 1rem;
+    }
+    
+    .domain-suggestion .suggestion-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .apply-suggestion-btn {
+        width: 100%;
+        justify-content: center;
     }
 }
 
