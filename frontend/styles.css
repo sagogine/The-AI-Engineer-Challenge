@@ -267,6 +267,104 @@ select:focus {
     box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
 }
 
+/* Debug Panel Styles */
+.debug-panel {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 2px solid #dee2e6;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    animation: slideIn 0.3s ease-out;
+}
+
+.debug-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+    color: #495057;
+}
+
+.debug-close-btn {
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.debug-close-btn:hover {
+    background: #5a6268;
+    transform: scale(1.1);
+}
+
+.debug-scores {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.score-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    background: white;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.score-item.high-score {
+    border-color: #28a745;
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+}
+
+.score-item.low-score {
+    border-color: #6c757d;
+    background: white;
+}
+
+.domain-name {
+    font-weight: 600;
+    color: #495057;
+    font-size: 0.9rem;
+}
+
+.score-value {
+    font-weight: 700;
+    color: #28a745;
+    font-size: 1.1rem;
+    min-width: 30px;
+    text-align: center;
+}
+
+.score-item.low-score .score-value {
+    color: #6c757d;
+}
+
+.debug-note {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #6c757d;
+    font-style: italic;
+    padding: 10px;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 6px;
+}
+
 @keyframes slideIn {
     from {
         opacity: 0;
