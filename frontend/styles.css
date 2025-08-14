@@ -677,6 +677,11 @@ select:focus {
     animation: slideIn 0.3s ease-out;
 }
 
+.dynamic-domain-info.fallback-domain {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    border: 2px solid #ffc107;
+}
+
 .domain-badge {
     display: flex;
     align-items: center;
@@ -685,14 +690,35 @@ select:focus {
     color: #2e7d32;
 }
 
+.domain-badge.fallback-domain {
+    color: #856404;
+}
+
 .domain-badge i {
     font-size: 1.2rem;
     color: #4caf50;
 }
 
+.domain-badge.fallback-domain i {
+    color: #ffc107;
+}
+
 .domain-badge strong {
     color: #1b5e20;
     font-weight: 700;
+}
+
+.domain-badge.fallback-domain strong {
+    color: #856404;
+}
+
+.fallback-note {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.8rem;
+    color: #856404;
+    font-style: italic;
+    opacity: 0.8;
 }
 
 /* Enhanced domain selector styling */
