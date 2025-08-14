@@ -2,102 +2,136 @@
 
 ## 🚀 Quick Start
 
-1. **Configure API Key:**
-   ```javascript
-   // In config.js
-   window.ELI5_CONFIG = {
-       apiKey: 'your-actual-openai-api-key',
-       apiUrl: '/api/chat'
-   };
-   ```
+This guide will help you deploy your ELI5 app to production with proper API configuration.
 
-2. **Deploy to Vercel:**
-   ```bash
-   npm install -g vercel
-   vercel --prod
-   ```
+## 📋 Prerequisites
 
-## 🔐 Security Best Practices
+- OpenAI API key
+- Vercel account (for deployment)
+- Python 3.8+ (for local development)
 
-### API Key Management
-- **NEVER** commit API keys to version control
-- Use environment variables in production
-- Consider server-side proxy for API calls
-- Implement rate limiting
+## 🔧 Configuration Steps
 
-### Environment Configuration
-```bash
-# .env.local (for local development)
-OPENAI_API_KEY=your-key-here
-API_URL=http://localhost:8000/api/chat
+### 1. Frontend Configuration
 
-# Production environment variables
-OPENAI_API_KEY=your-production-key
-API_URL=https://yourdomain.com/api/chat
-```
+Update `frontend/config.js` with your production settings:
 
-## 🌐 Deployment Options
-
-### Vercel (Recommended)
-- Automatic deployments from Git
-- Built-in environment variable support
-- Global CDN
-- Free tier available
-
-### Netlify
-- Similar to Vercel
-- Good for static sites
-- Environment variable support
-
-### Traditional Hosting
-- Upload files to web server
-- Configure environment variables
-- Set up HTTPS
-
-## 📁 File Structure
-```
-frontend/
-├── index.html          # Main app
-├── styles.css          # Styling
-├── script.js           # App logic
-├── config.js           # Configuration (configure here)
-└── DEPLOYMENT.md       # This file
-```
-
-## 🔧 Configuration
-
-### Development
 ```javascript
-// config.js
 window.ELI5_CONFIG = {
-    apiKey: 'your-dev-key',
-    apiUrl: 'http://localhost:8000/api/chat',
-    environment: 'development'
-};
-```
-
-### Production
-```javascript
-// config.js
-window.ELI5_CONFIG = {
-    apiKey: 'your-production-key',
-    apiUrl: '/api/chat',
+    // Your OpenAI API key - set this in production
+    apiKey: 'sk-your-actual-openai-api-key-here',
+    
+    // API endpoint URL - IMPORTANT: Update this to your deployed API domain
+    apiUrl: 'https://your-api-domain.vercel.app/api/chat',
+    
+    version: '1.0.0',
     environment: 'production'
 };
 ```
 
-## 🚨 Important Notes
+**⚠️ IMPORTANT:** Replace `your-api-domain.vercel.app` with your actual deployed API domain.
 
-1. **API Key Security:** Never expose API keys in client-side code
-2. **HTTPS:** Always use HTTPS in production
-3. **Rate Limiting:** Implement rate limiting on your API
-4. **Monitoring:** Set up error monitoring and logging
-5. **Backup:** Keep backups of your configuration
+### 2. Backend API Deployment
 
-## 📞 Support
+Deploy your Python API to Vercel:
 
-For issues or questions:
-1. Check the console for errors
-2. Verify API key configuration
-3. Test API endpoint connectivity
-4. Check network requests in browser dev tools
+```bash
+# Navigate to the API directory
+cd api
+
+# Deploy to Vercel
+vercel --prod
+```
+
+**Note:** The API will be deployed to a separate domain (e.g., `https://your-api-name.vercel.app`)
+
+### 3. Update Frontend API URL
+
+After deploying the API, copy the API domain and update `frontend/config.js`:
+
+```javascript
+apiUrl: 'https://your-api-name.vercel.app/api/chat'
+```
+
+### 4. Deploy Frontend
+
+Deploy your frontend to Vercel:
+
+```bash
+# Navigate to the root directory
+cd ..
+
+# Deploy to Vercel
+vercel --prod
+```
+
+## 🔍 Troubleshooting
+
+### Common Issues
+
+1. **"API endpoint not implemented" Error**
+   - Check that your API is deployed and accessible
+   - Verify the API URL in `config.js` matches your deployed API domain
+   - Ensure your API has the correct routes configured
+
+2. **CORS Errors**
+   - The API is configured to allow all origins (`allow_origins=["*"]`)
+   - If you need to restrict origins, update `api/app.py`
+
+3. **API Key Issues**
+   - Never commit real API keys to version control
+   - Use environment variables in production
+   - Consider implementing server-side API key handling
+
+### Testing Your Setup
+
+1. **Test API Endpoint:**
+   ```bash
+   curl -X GET https://your-api-domain.vercel.app/api/health
+   ```
+   Should return: `{"status": "ok"}`
+
+2. **Test Frontend:**
+   - Open your deployed frontend
+   - Check browser console for any errors
+   - Try explaining a simple topic
+
+## 🏗️ Architecture
+
+```
+Frontend (Static HTML/CSS/JS)
+    ↓
+Vercel Static Hosting
+    ↓
+API Calls to Python Backend
+    ↓
+Python API (FastAPI)
+    ↓
+OpenAI API
+```
+
+## 🔒 Security Considerations
+
+1. **API Keys:** Never expose in client-side code
+2. **CORS:** Configure appropriately for production
+3. **Rate Limiting:** Implement on your API
+4. **HTTPS:** Always use in production
+
+## 📚 Additional Resources
+
+- [Vercel Python Runtime](https://vercel.com/docs/runtimes#python)
+- [FastAPI Documentation](https://fastapi.tiangolo.com/)
+- [OpenAI API Documentation](https://platform.openai.com/docs)
+
+## 🆘 Need Help?
+
+If you're still experiencing issues:
+
+1. Check the browser console for error messages
+2. Verify your API is deployed and accessible
+3. Ensure your configuration files are properly set
+4. Check Vercel deployment logs
+
+---
+
+**Happy Deploying! 🎉**
